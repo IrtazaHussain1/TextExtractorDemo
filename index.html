@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Text</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <br/>
+        <div class="container">
+            <h2>PDF To Text Extractor</h2>
+            <p>select PDF file and to etxract text</p>
+            <div class="file-select">
+                <form method='POST' action="/" enctype="multipart/form-data">
+                    {{csrf_token}}
+                    <p style="color:green;font-size:26px">{{message}}</p>
+                    <input type="file" name="invoice" class="form-control-file" required/>
+                    <p style="color:red;font-size:16px">{{error}}</p>
+                    <input type="submit" class="btn btn-success" value="Extract" />
+                </form>
+            </div>
+        </div>
+        <br/>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <th>Issuer</th>
+                    <th>Invoice Number</th>
+                    <th>Date</th>
+                    <th>Address</th>
+                    <th>Customer</th>
+                    <th>Customer A/C#</th>
+                    <th>Customer Address</th>
+                    <th>Items</th>
+                    <th>Net Total</th>
+                    <th>Tax Added</th>
+                    <th>Total Ammount</th>
+                </thead>
+                <tbody id="tableId">
+                    {% for i in data %}
+                    <tr>
+                        <td>{{i['issuer']}}</td>
+                        <td>{{i['invoiceNumber']}}</td>
+                        <td>{{i['date']}}</td>
+                        <td>{{i['address']}}</td>
+                        <td>{{i['customer']}}</td>
+                        <td>{{i['customerAcc']}}</td>
+                        <td>{{i['customerAddress']}}</td>
+                        <td>
+                            <ol>
+                            {% for item in i['items'] %}
+                                <li>
+                                    <ul>
+                                        <li>SKU: {{item['sku']}}</li>
+                                        <li>Quantity: {{item['qty']}}</li>
+                                        <li>Description: {{item['description']}}</li>
+                                        <li>UOM: {{item['uom']}}</li>
+                                        <li>Total: {{item['total']}}</li>
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                            </ol>
+                        </td>
+                        <td>{{i['netTotal']}}</td>
+                        <td>{{i['taxAmmount']}}</td>
+                        <td>{{i['total']}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</body>
+</html>

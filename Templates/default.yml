@@ -1,0 +1,43 @@
+# -*- coding: utf-8 -*-
+issuer: Cetnaj
+file: ''
+fields:
+  tel: 'Tel(\+\w+(?:[ -)(]\w\w+)*)'
+  email: 'Email:[ ]+(\w+@\w+.\w+)'
+  website: 'Website:[ ]+(\w+.\w+.\w+)'
+  vat_no: 'Vat no:[ ]+(\w+)'
+  date: 'Date:[ ]+(\d{2}[/-]\d{2}[/-]\d{4})'
+  invoice_number: 'Invoice Number[ ]+(\w+)'
+  contact: 'Contact[ ]+(\w+)'
+  bank: 'Bank\s+(\w+(?:[ ]\w\w+)*)'
+  address: 'Address\s+(\w+(?:[ ,]\w\w+)*)'
+  iban: 'IBAN\s+(\w+(?:[ ]\w\w+)*)'
+  bic: 'BIC\s+(\w+)'
+  due_d: 'Due Date\s+(\w+)'
+  sub_total: 'Subtotal\s+(\d+.\d+)'
+  vat: 'Vat\s+(\d+)%\s+(\d+.\d+)'
+keywords:
+- Cetnaj
+- ALL ACCESS ELECTRICAL PTY LTD
+custom:
+  items:
+  - name: 'to'
+    area: (135, 878, 686, 349)
+  - name: 'from'
+    area: (1398, 325, 489, 197)
+  regex:
+    line: \s+(?P<desc>(\w+(?:[ ]\w\w+)*))\s+(?P<date>(\d{2}[-]\d{2}[-]\d{4}))\s+(?P<item>(\w+))\s+(?P<qty>(\d+))\s+(?P<unit_price>[€ ](\d+.\d+))\s+(?P<total>[€ ](\d+.\d+))\n
+required_fields:
+  - tel
+options:
+  currency: €
+  date_formats:
+    - '%d-%m-%Y'
+  remove_whitespace: False
+  languages:
+    - en
+  replace:
+    - ['‘', '']
+    - ['[', '']
+    - ['€', '']
+  decimal_separator: '.'

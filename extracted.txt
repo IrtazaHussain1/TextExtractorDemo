@@ -1,0 +1,39 @@
+===============Invoice 1===============
+Company Name: Ideal Electrical
+Invoice Number: 14980197
+Address: Unit 10-11, 5 Traders Wy, Currumbin QLD 4223, Australia
+Date: 2020-03-17 00:00:00
+Customer: ALL ACCESS ELECTRICAL
+Customer A/C#: 177131-2
+Customer Address: BURLEIGH WATERS
+PO BOX 2921
+BURLEIGH WATERS QLD
+=========List Items=========
+sku: HAGWBWP2SH
+qty: 6.0
+description: SOCKET IP53 TWIN HORZ 10ASHALLOW
+UOM: EAC
+total price: 131.36
+=========List Items End=========
+Net total: 144.5
+======================================
+
+===============Invoice 2===============
+Company Name: Cetnaj
+Invoice Number: 105241-591
+Address: 20 Kortum Drive, Burleigh Heads Queensland 4220, Australia
+Date: 2020-03-17 02:48:00
+Customer: ALL ACCESS ELECTRICAL PTY LTD
+Customer A/C#: 2001440
+Customer Address: PO BOX 2921
+BURLEIGH WATERS 4220
+=========List Items=========
+sku: DUXBOL1603BK
+qty: 1.0
+description: # BOL1603 BLACK BOLLARD
+UOM: EA
+total price: 370.0
+=========List Items End=========
+Net total: 407.0
+======================================
+

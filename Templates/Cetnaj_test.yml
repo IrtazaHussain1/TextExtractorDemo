@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+issuer: Cetnaj
+keywords:
+- Cetnaj
+- ALL ACCESS ELECTRICAL PTY LTD
+fields:
+  amount: (\d{3}\.\d{2})\s+
+  date: Order Date:\s+(\d{1,2}\/\d{1,2}\/\d{4})
+  invoice_number: Tax\s+Invoice\s+No:\s+(\d+-\d+)
+  telephone_number: Tel\s*:\s+(\d{2}\s*\d+\s*\d+)
+  fax_number: Fax\s*:\s+(\d{2}\s*\d+\s*\d+)
+  biller_code: Biller Code:\s*(\d+)
+options:
+  remove_whitespace: false
+  currency: AUD
+  date_formate:
+    - '%d/%m/%Y'
+  language:
+    - en
